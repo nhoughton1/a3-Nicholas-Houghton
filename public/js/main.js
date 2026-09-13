@@ -42,6 +42,9 @@ window.onload = async function() {
 
     //get table
     table = document.querySelector('#showresults')
+    const userName = await fetch ('/user')
+    const user = await userName.json()
+    document.querySelector('#loggedinuser').innerHTML = user.username
     const response = await fetch('/results', {
         method: 'GET'
     })

@@ -13,7 +13,7 @@
     <link rel='icon' href='data:;base64,iVBORw0KGgo='>
 </head>
 <body>
-<h1>TV Show Progress Tracker</h1>
+<h1>TV Show Progress Tracker: <span id="loggedinuser"></span> </h1>
 <form>
     <label class="form-group" for="showname">Show</label>
     <input class="form-group" type='text' id='showname' value='Name of Show Here'>
@@ -49,5 +49,9 @@
     <tbody id = 'showresults'>
     </tbody>
 </table>
+
+<form action = "/logout" method = "POST">
+    <button type = "submit">Logout</button>
+</form>
 </body>
 </html>
