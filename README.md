@@ -112,11 +112,11 @@ Some challenges that were faced while making this was definitely adapting my CSS
 Cookie-session was used for authentication. After loigin, the server uses a cookie to store it. I choose this since there was a great example of it uploaded to the class github syllabus, so I thought it would be good to implement. 
 
 For CSS framework, I used MVP.css (https://andybrewer.github.io/mvp/). I used this because I liked the simple design of it, and it did not rely on classes, which worked for my application as I do not have classes on everything.   
-The CSS I used was to use my own font from google fonts, and to center everything(form buttons, table, loggout button, modify options). For a simple form like this, I thought it was best to center everything.  
+The CSS I used was to center everything(form buttons, table, loggout button, modify options). For a simple form like this, I thought it was best to center everything.  
 I also did some styling to comply with lighthouse. I had to change the background color on table elements and buttons to dim gray top get the lighthouse score to 100%. I also added a separator bar and spacing between my form buttons. 
 
 ## Technical Achievements
-- **Tech Achievement 1**: I got 100% on all 4 lighthouse tests for this assignment. This was difficult since I had to do some custom colors instead of solely relying on the framework (images below)
+- **Tech Achievement 1**: I got 100% on all 4 lighthouse tests for this assignment. This was difficult since I had to do some custom colors instead of solely relying on the framework (images below). I also had to stop using google fonts for performance
 - ![img_4.png](lighthouselogin.png)
   ![img_5.png](lighthousemain.png)
 
