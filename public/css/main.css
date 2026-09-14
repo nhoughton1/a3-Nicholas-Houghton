@@ -1,12 +1,8 @@
 body {
-    background:darkslategray;
-    color:white;
     font-family: "Mulish", sans-serif;
-
     display:flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 
@@ -17,20 +13,15 @@ body {
     gap:10px;
 }
 
-button, input, thead, th, input[type="submit"] {
+button, thead, th, input[type="submit"] {
     background-color: dimgray;
-    border: none;
 }
-
-
-#showtable {
-    margin-top: 10px;
-    margin-bottom: 10px;
+button{
+    background-color: dimgray;
 }
 
 hr {
     width:100%;
-    margin:20px;
 }
 
 .logout-button{
@@ -44,9 +35,7 @@ hr {
     display:flex;
     flex-direction: column;
 }
-input {
-    color: white;
-}
+
 input[type="number"]{
     width: 100%;
     box-sizing: border-box;

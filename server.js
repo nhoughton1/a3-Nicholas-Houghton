@@ -31,7 +31,7 @@ const favicon = require('serve-favicon')
 const path = require('path')
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.PASS}@${process.env.HOST}`
-console.log( 'uri:', uri )
+
 const client = new MongoClient( uri )
 let collection = null
 let users = null

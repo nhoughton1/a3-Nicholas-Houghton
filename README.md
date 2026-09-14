@@ -92,20 +92,41 @@ Write a paragraph of at least 125 words *for each of the four principles* (four 
 Sample Readme (delete the above when you're ready to submit, and modify the below so with your links and descriptions)
 ---
 
-## Your Web Application Title
+## TV Show Progress Tracker
 
-A link to your project running on render.
 
-Include a very brief summary of your project here. Images are encouraged, along with concise, high-level text. Be sure to include:
+https://a3-nicholas-houghton.onrender.com/
 
-- the goal of the application
-- challenges you faced in realizing the application
-- what authentication strategy you chose to use and why (choosing one because it seemed the easiest to implement is perfectly acceptable)
-- what CSS framework you used and why
-  - include any modifications to the CSS framework you made via custom CSS you authored
+This is a TV Show progress tracker which allows multiple users to track the TV shows they are watching. The goal is, after logging in, to allow you to enter the name of any tv show you have or are currently watching, and then include the number of episodes you have seen, and then the total number of episodes in the show.
+After entering that, the derived field is the percent complete field, which shows you what percent through the show you are.
+You can also modify a show you have already added, to update the # of episodes through you are. 
+
+To use the application, you must first login. Here are premade accounts:  
+User: Admin Password: Admin  
+User: Admin2 Password: Admin2  
+After logging in, you are greeted with the form to submit more shows, and your already submitted shows that are stored in mongo db. To add a new show, you fill in the fields and press submit. To modify, you fill in the fields, and select the number row that corresponds with the show you want to modify, and press modify. 
+![img.png](pageview.png)
+
+Some challenges that were faced while making this was definitely adapting my CSS to fit with a new framework. After using a new framework, I had to redo a good amount of CSS work to make it look better.
+
+Cookie-session was used for authentication. After loigin, the server uses a cookie to store it. I choose this since there was a great example of it uploaded to the class github syllabus, so I thought it would be good to implement. 
+
+For CSS framework, I used MVP.css (https://andybrewer.github.io/mvp/). I used this because I liked the simple design of it, and it did not rely on classes, which worked for my application as I do not have classes on everything.   
+The CSS I used was to use my own font from google fonts, and to center everything(form buttons, table, loggout button, modify options). For a simple form like this, I thought it was best to center everything.  
+I also did some styling to comply with lighthouse. I had to change the background color on table elements and buttons to dim gray top get the lighthouse score to 100%. I also added a separator bar and spacing between my form buttons. 
 
 ## Technical Achievements
-- **Tech Achievement 1**: I used OAuth authentication via the GitHub strategy
+- **Tech Achievement 1**: I got 100% on all 4 lighthouse tests for this assignment. This was difficult since I had to do some custom colors instead of solely relying on the framework (images below)
+- ![img_4.png](lighthouselogin.png)
+  ![img_5.png](lighthousemain.png)
+
+- **Tech Achievement 2**: I used 5 Express middleware Packages:
+  - Cookie-session: Creates cookie-bases sessions which I used so the server remembers which user is logged in 
+  - Morgan: This logs HTTP requests to the console and also includes the status code which is useful for debugging
+  - Connect-Timeout: Sets a maximum length of time the server has to respond before cancelling it. This is useful since my servers are on free versions and this can cancel bad requests
+  - Response-Time: This shows how long the server takes to respond to a request
+  - Serve-Favicon: This shows the icon for the website and lets me include a real icon for it so when you see the tv icon in the browser, thats what this is. The icon i used is from here: https://www.flaticon.com/free-icon/tv_5988394
 
 ### Design/Evaluation Achievements
 - **Design Achievement 1**: I followed the following tips from the W3C Web Accessibility Initiative...
+  https://www.flaticon.com/free-icon/tv_5988394
