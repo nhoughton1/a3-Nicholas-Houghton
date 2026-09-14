@@ -1,28 +1,32 @@
 <!doctype html>
 <html lang='en'>
 <head>
+<meta name = "description" content = "Login page to access the TV Show Progress Tracker App">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <title>CS4241 Assignment 2</title>
     <meta charset='utf-8'>
 
-    <link rel='stylesheet' href='/css/main.css'>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    <link rel="stylesheet" href="/css/main.css">
 
-    <!-- get rid of favicon error -->
-    <link rel='icon' href='data:;base64,iVBORw0KGgo='>
 </head>
 
 
 <body>
+<main>
 <h1>TV Show Progress Tracker Login</h1>
 <p>If an account with your username doesn't exist, a new account will be created.</p>
 <form action='/login' method='POST'>
+<label for='username'>Username</label>
+    <input type='text' id = 'username' name='username'>
+    <label for='password'>Password</label>
 
-    <input type='text' name='username'>
-    <input type='password' name='password'>
+    <input type='password' id = 'password' name='password'>
     <input type='submit'>
 </form>
+</main>
 </body>
 </html>
 

@@ -1,19 +1,22 @@
 <!doctype html>
 <html lang='en'>
 <head>
+    <meta name = "description" content = "An app to track the tv shows that you are watching and how many episodes through you are. You can add a new show by using the form, or modify a show you have already added with the form as well. ">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <title>CS4241 Assignment 2</title>
     <meta charset='utf-8'>
     <script src='js/main.js'></script>
-    <link rel='stylesheet' href='css/main.css'>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    <link rel="stylesheet" href="/css/main.css">
 
-    <!-- get rid of favicon error -->
-    <link rel='icon' href='data:;base64,iVBORw0KGgo='>
 </head>
 <body>
+<main>
 <h1>TV Show Progress Tracker: <span id="loggedinuser"></span> </h1>
+</main>
 <form>
     <label class="form-group" for="showname">Show</label>
     <input class="form-group" type='text' id='showname' value='Name of Show Here'>
@@ -28,8 +31,12 @@
         <button id="submitbutton">Submit</button>
         <span>OR</span>
         <button type="button" id="modifybutton">Modify</button>
+        <div class = "modify-show">
+        <label  for="index">Show to Modify</label>
+
         <select id='index'>
         </select>
+        </div>
     </div>
 
 </form>
@@ -50,8 +57,9 @@
     </tbody>
 </table>
 
-<form action = "/logout" method = "POST">
+<form action = "/logout" method = "POST" class = "logout-button">
     <button type = "submit">Logout</button>
 </form>
+
 </body>
 </html>
