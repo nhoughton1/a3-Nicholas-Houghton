@@ -84,6 +84,7 @@ app.post('/login', async(req, res) => {
       password: password
     })
     req.session.login = true
+    //only gets data for user thats logged in
     req.session.username = username
     res.redirect('index.html')
   } else if (user.password === password) {
@@ -121,6 +122,7 @@ app.post('/logout', (req, res) => {
 //display results table
 app.get('/results', async (req, res) => {
   const appdata = await collection.find({
+    //only gets data for user thats logged in
     username: req.session.username
   }).toArray()
   res.json(appdata)
@@ -129,6 +131,7 @@ app.get('/results', async (req, res) => {
 //create new show
 app.post('/submit', async(req, res) => {
   const newItem = {
+    //assigns item to this username
     username: req.session.username,
     show: req.body.show,
     watched: req.body.watched,
@@ -137,6 +140,7 @@ app.post('/submit', async(req, res) => {
   calculatePercent(newItem)
   await collection.insertOne(newItem)
   const appdata = await collection.find({
+    //searches for item based on username
     username: req.session.username
   }).toArray()
   res.json(appdata)
@@ -146,6 +150,7 @@ app.post('/submit', async(req, res) => {
 app.post('/delete', async (req, res) => {
   await collection.deleteOne({
     _id: new ObjectId(req.body._id),
+    //this just makes sure that the user modifying/deleting this actually "owns" it. probably not necessary...
     username: req.session.username
   })
   const appdata = await collection.find({
@@ -165,6 +170,7 @@ app.post('/modify', async(req, res) => {
   await collection.updateOne(
       {
         _id: new ObjectId(req.body._id),
+        //this just makes sure that the user modifying/deleting this actually "owns" it. probably not necessary...
         username: req.session.username
       }, {
         $set: modifiedItem
