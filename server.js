@@ -1,37 +1,45 @@
 require ('dotenv').config();
 
+
 const express = require("express"),
     cookie = require ('cookie-session'),
     { MongoClient, ObjectId } = require("mongodb"),
     app = express()
-app.use( express.urlencoded({ extended:true }) )
 
+app.use( express.urlencoded({ extended:true }) )
 app.use( express.json() )
 
+//store login info in a cookie
 app.use(cookie({
   name: 'session',
   keys: ['key1', 'key2']
 }))
 
+//serve this to allow the SEO lighthouse to get 100. It doesnt actually exist but this makes it pass
 app.get('/robots.txt', (req, res) => {
   res.sendFile(__dirname + '/robots.txt')
 })
 
 //Middleware:
+//log http requests
 const morgan = require('morgan')
 app.use(morgan('dev'))
 
+//add server response time info
 const responseTime = require('response-time')
 app.use(responseTime())
 
+//create max timeout of 15s for requests
 const timeout = require('connect-timeout')
 app.use(timeout('15s'))
 
+//create web app favicon
 const favicon = require('serve-favicon')
 const path = require('path')
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.PASS}@${process.env.HOST}`
 
+//connect to collections
 const client = new MongoClient( uri )
 let collection = null
 let users = null
@@ -97,12 +105,14 @@ app.use( function( req,res,next) {
 })
 app.use( express.static( 'public' ) )
 
+//allows page to display what user is viewing it
 app.get('/user', (req, res) => {
   res.json({
     username: req.session.username,
   })
 })
 
+//logout functionality
 app.post('/logout', (req, res) => {
   req.session = null
   res.redirect('/public/login.html')
